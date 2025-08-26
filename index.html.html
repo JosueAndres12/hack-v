@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackeo en progreso...</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #terminal {
+      white-space: pre-line;
+    }
+    .hidden {
+      display: none;
+    }
+    .reveal {
+      color: white;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn-instagram {
+      display: inline-block;
+      padding: 15px 30px;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #fd1d1d, #833ab4, #fcb045);
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(253, 29, 29, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-instagram:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(253, 29, 29, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+  <div id="reveal" class="hidden reveal">
+    <h1>😱 ¡Te hackeamos... es broma! 😂</h1>
+    <p>Sigue a @josue.ashz en Instagram para más bromas.</p>
+    <a href="https://instagram.com/josue.ashz" target="_blank" class="btn-instagram">👉 Seguir en Instagram</a>
+  </div>
+
+  <script>
+    const terminal = document.getElementById("terminal");
+    const reveal = document.getElementById("reveal");
+    const lines = [
+      "Conectando con servidor...",
+      "Obteniendo dirección IP...",
+      "IP encontrada: 192.168.0.13",
+      "Iniciando ataque de fuerza bruta...",
+      "Contraseña encontrada: *********",
+      "Accediendo a datos personales...",
+      "Enviando información al servidor secreto...",
+      "¡Hackeo completado!"
+    ];
+
+    let i = 0;
+    function typeLine() {
+      if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, 1000);
+      } else {
+        setTimeout(() => {
+          terminal.classList.add("hidden");
+          reveal.classList.remove("hidden");
+        }, 1500);
+      }
+    }
+    typeLine();
+  </script>
+</body>
+</html>
